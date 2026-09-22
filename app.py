@@ -41,7 +41,6 @@ def load_sbert():
 with st.spinner("Menyiapkan model NLP (pertama kali membutuhkan beberapa saat)..."):
     SBERT_MODEL, USE_SBERT = load_sbert()
 
-
 lemmatizer = WordNetLemmatizer()
 
 indonesian_stopwords = {
@@ -67,7 +66,6 @@ def preprocess_text(text):
     tokens = [lemmatizer.lemmatize(t) for t in tokens]
     return ' '.join(tokens)
 
-
 @st.cache_data
 def load_medical_dataset():
     dataset = load_dataset(
@@ -80,7 +78,6 @@ def load_medical_dataset():
     qa_list = []
     for item in dataset:
         question = item.get('description', '')
-        
         answer = ""
         utterances = item.get('utterances', [])
         for utt in utterances:

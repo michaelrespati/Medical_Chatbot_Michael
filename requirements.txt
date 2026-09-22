@@ -1,0 +1,7 @@
+streamlit
+nltk
+scikit-learn
+pandas
+numpy
+sentence-transformers
+datasets<3.0.0

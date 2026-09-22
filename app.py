@@ -41,7 +41,6 @@ def load_sbert():
 with st.spinner("Menyiapkan model NLP (pertama kali membutuhkan beberapa saat)..."):
     SBERT_MODEL, USE_SBERT = load_sbert()
 
-
 lemmatizer = WordNetLemmatizer()
 
 indonesian_stopwords = {
@@ -66,7 +65,6 @@ def preprocess_text(text):
     tokens = [t for t in tokens if t not in all_stopwords and len(t) > 2]
     tokens = [lemmatizer.lemmatize(t) for t in tokens]
     return ' '.join(tokens)
-
 
 @st.cache_data
 def load_medical_dataset():
@@ -234,4 +232,5 @@ if final_input:
 if st.button("🗑️ Clear chat"):
     st.session_state.messages = []
     st.session_state.history_raw = []
+
     st.rerun()
